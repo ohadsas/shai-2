@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+{{ parent() }}
+{% endblock %}
+
+{% block scripts %}
+{{ parent() }}
+    <script type="text/javascript" src="js/publisher/models.js"></script>
+    <script type="text/javascript" src="js/publisher/views.js"></script>
+    <script type="text/javascript" src="js/publisher/init.js"></script>
+{% endblock %}
+
+{% block content %}
+    <table class="table table-striped" id="stats_table">
+        <thead>
+            <th><a href="publisher_name" class="sort_by">Publisher</a></th>
+            <th><a href="impressions" class="sort_by">Impressions</a></th>
+            <th><a href="conversions" class="sort_by">Conversions</a></th>
+            <th><a href="rate" class="sort_by">Conversion Rate</a></th>
+        </thead>
+        <tbody id="stats_content">
+
+        </tbody>
+    </table>
+
+    <script type="text/template" id="row">
+        <tr>
+            <td><%= model.publisher_name %></td>
+            <td><%= model.impressions %></td>
+            <td><%= model.conversions %></td>
+            <td><%= model.rate %> %</td>
+        </tr>
+    </script>
+{% endblock %}
+

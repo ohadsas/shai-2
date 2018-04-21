@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+{{ parent() }}
+{% endblock %}
+
+{% block scripts %}
+{{ parent() }}
+<script type="text/javascript" src="js/platform/models.js"></script>
+<script type="text/javascript" src="js/platform/views.js"></script>
+<script type="text/javascript" src="js/platform/init.js"></script>
+<script type="text/javascript" src="js/vendor/flot-master/jquery.flot.js"></script>
+<script type="text/javascript" src="js/vendor/flot-master/jquery.flot.time.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="stats_page">
+
+    <form class="form-inline">
+        <label class="select">
+            Publisher
+            <select id="stats_publisher">
+            </select>
+        </label>
+        <button type="button" class="btn filter_stats">Filter</button>
+        <label class="checkbox">
+            <input type="checkbox" id="show_graph" class="check_show_graph" value="">
+            Show graph
+        </label>
+    </form>
+
+    <form class="form-inline">
+        <label class="select">
+            Country
+            <select id="stats_country" class="input-small">
+            </select>
+        </label>
+        </label class="input">
+            Impressions
+            <input type="text" id="update_impressions" class="input-small"/>
+        </label>
+        </label class="input">
+            Conversions
+            <input type="text" id="update_conversions" class="input-small"/>
+        </label>
+        <button type="button" class="btn update_country">Update</button>
+    </form>
+
+    <div id="placeholder" style="width:600px;height:300px" class="hidden"></div>
+
+    <table class="table table-striped">
+        <thead id="stats_header">
+
+        </thead>
+        <tbody id="stats_content">
+
+        </tbody>
+    </table>
+
+</div>
+
+
+<script type="text/template" id="publisher_select">
+    <option value="<%= model.id %>"><%= model.name %></option>
+</script>
+
+<script type="text/template" id="country_select">
+    <option value="<%= model.iso %>"><%= model.iso %></option>
+</script>
+
+<script type="text/template" id="header_row">
+    <th><%= model.name %></th>
+</script>
+{% endblock %}
+

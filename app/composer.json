@@ -1,0 +1,15 @@
+{
+  "name" : "majalap/appthistest",
+  "autoload": {
+    "psr-4": {
+      "": "lib/"
+    }
+  },
+  "require": {
+    "slim/slim": "~3.0",
+    "symfony/yaml": "~2.8",
+    "twig/twig": "~1.0",
+    "monolog/monolog": "~1.0",
+    "doctrine/dbal" : "~2.0"
+  }
+}

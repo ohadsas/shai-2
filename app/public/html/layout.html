@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <title>AppThis-Test</title>
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+    {% block styles %}
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    {% endblock %}
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a class="brand" href="#">Stats!</a>
+            <ul class="nav">
+                <li {% if menuItem=="publishers" %} class="active" {% endif %}  ><a href="/publishers">Publisher Report</a></li>
+                <li {% if menuItem=="dates" %} class="active" {% endif %}  ><a href="/dates">30-Day Report</a></li>
+                <li {% if menuItem=="platforms" %} class="active" {% endif %}  ><a href="/platforms">Performance Graph</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container" id="content">
+        <div id="error_msg" class="alert alert-error hidden"></div>
+        {% block content %}{% endblock %}
+    </div>
+    {% block scripts %}
+    <script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/vendor/underscore-min.js"></script>
+    <script type="text/javascript" src="js/vendor/backbone-min.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    {% endblock %}
+</body>
+</html>

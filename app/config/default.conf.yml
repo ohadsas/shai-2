@@ -1,0 +1,19 @@
+app:
+  environment: prod
+db:
+  driver: pdo_mysql
+  host: mysql
+  port: 3306
+  dbname: appthis
+  user: maja
+  password: adfh376gf7
+  charset: UTF8
+  persistent: true
+paths:
+  app: /var/www/appthis-test
+  templates: /var/www/appthis-test/public/html
+  cache: /var/www/appthis-test/cache
+  log: /var/www/appthis-test/log
+log:
+  level: debug
+  name: appthis

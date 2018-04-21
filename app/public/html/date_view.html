@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+{{ parent() }}
+{% endblock %}
+
+{% block scripts %}
+{{ parent() }}
+<script type="text/javascript" src="js/date/models.js"></script>
+<script type="text/javascript" src="js/date/views.js"></script>
+<script type="text/javascript" src="js/date/init.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="stats_page">
+
+    <form class="form-inline">
+        <label class="input">
+            Start
+            <input type="date" value="2016-05-01" id="start_date">
+        </label>
+        <label class="input">
+            End
+            <input type="date" value="2016-05-30" id="end_date">
+        </label>
+        <button type="button" class="btn filter_stats">Filter</button>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <th><a href="day" class="sort_by">Day</a></th>
+        <th><a href="impressions" class="sort_by">Impressions</a></th>
+        <th><a href="conversions" class="sort_by">Conversions</a></th>
+        <th><a href="rate" class="sort_by">Conversion Rate</a></th>
+        </thead>
+        <tbody id="stats_content">
+
+        </tbody>
+    </table>
+
+</div>
+
+<script type="text/template" id="row">
+    <tr>
+        <td><%= model.day %></td>
+        <td><%= model.impressions %></td>
+        <td><%= model.conversions %></td>
+        <td><%= model.rate %> %</td>
+    </tr>
+</script>
+{% endblock %}
+
